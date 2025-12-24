@@ -59,8 +59,45 @@ body {
 html.dark {
   color-scheme: dark;
   --bg-default: #0b0b0d;
-  --text-default: #eaeaea;
-  --muted-default: #9a9a9a;
+  /* Improved dark-mode text colours for better contrast */
+  --text-default: #E6EEF3; /* primary body text */
+  --muted-default: #9FB0BF; /* secondary / muted text */
+  --heading-default: #FFFFFF; /* headings */
+  --link-accent: #60A5FA; /* links and accents */
+}
+
+/* Dark-mode readability overrides for common text containers */
+.dark .prose,
+.dark .prose * {
+  color: var(--text-default) !important;
+}
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: var(--heading-default) !important;
+}
+.dark .prose a {
+  color: var(--link-accent) !important;
+}
+/* Ensure non-prose anchors are readable (white) in dark mode, e.g. nav and buttons */
+.dark a {
+  color: var(--heading-default) !important;
+}
+.dark .text-slate-700,
+.dark .text-slate-600,
+.dark .text-slate-500 {
+  color: var(--muted-default) !important;
+}
+
+/* Ensure code and small muted text remain legible */
+.dark code,
+.dark kbd,
+.dark .text-xs,
+.dark .muted {
+  color: var(--muted-default) !important;
 }
 /* 
 @keyframes customBounce {

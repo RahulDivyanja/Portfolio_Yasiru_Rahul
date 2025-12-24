@@ -30,7 +30,7 @@ export const Card = ({
           }
         >
           <span className="absolute top-2 left-2 w-fit rounded-full border border-gray-700 bg-black px-4 py-2 text-xs shadow-md backdrop-blur-md dark:border-none">{type}</span>
-          <span className="absolute bottom-4 left-4 z-5 w-fit text-lg">{alt.split(" ")[0]}</span>
+          <span className="absolute bottom-4 left-4 z-5 w-fit text-lg">{alt}</span>
           <span className="absolute right-4 bottom-4 z-5 flex w-fit items-center gap-1 text-xs">
             {/* SVG inlined for performance */}
             <svg className="h-4 w-4" height="16" width="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

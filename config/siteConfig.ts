@@ -44,9 +44,9 @@ export const SITE_SLUGS = {
   contact: "/#contact",
   about: "/#about-austin-serb",
   projectLinks: {
-    iao: "/projects/iron-and-oak",
-    automedics: "/projects/automedics",
-    bespoke: "/projects/bespoke",
+    skAutoCare: "/projects/sk-auto-care",
+    travelCeylon: "/projects/travel-ceylon",
+    heartAttackDetector: "/projects/heart-attack-detector",
   },
 } as const
 

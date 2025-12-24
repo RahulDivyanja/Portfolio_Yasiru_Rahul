@@ -49,7 +49,7 @@ export const RecruiterContact: React.FC = () => {
             </BlackButtonLink>
 
             <WhiteButtonLink href={DATA.contact.social.LinkedIn.url}>
-              <Icon name="linkedin" height={18} width={18} className="h-[18px] w-[18px]" />
+              <Icon name="linkedin" height={18} width={18} className="h-[18px] w-[18px] text-black dark:text-white" />
               LinkedIn
             </WhiteButtonLink>
             <WhiteButtonLink href={DATA.contact.social.GitHub.url}>
