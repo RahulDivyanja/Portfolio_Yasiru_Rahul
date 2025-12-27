@@ -10,16 +10,17 @@ export const WorkHero: React.FC = () => {
           </AnimatedElement>{" "}
           <br />
           <AnimatedElement element="span" offsetPx={40} delay={0.2} fadeDirection="top" className="inline-block">
-            Recent Work
-          </AnimatedElement>
+              Recent Work
+            </AnimatedElement>
+            <span className="status-dot status-dot--pulse ml-3" aria-hidden="true" />
         </h1>
-        <AnimatedElement
-          element="p"
-          delay={0.6}
-          className="max-w-xs text-center text-sm leading-tight tracking-tight text-slate-700 md:max-w-sm md:pr-4 md:text-base"
-        >
-          Featured work by Yasiru Rahul Divyanja: Full-Stack MERN applications, Next.js + Tailwind CSS e-commerce platforms, and freelance web solutions. Explore scope, code, and outcomes.
-        </AnimatedElement>
+          <AnimatedElement
+            element="p"
+            delay={0.6}
+            className="max-w-xs text-center text-sm leading-tight tracking-tight text-slate-700 md:max-w-sm md:pr-4 md:text-base typing-with-cursor"
+          >
+            Featured work by Yasiru Rahul Divyanja: Full-Stack MERN applications, Next.js + Tailwind CSS e-commerce platforms, and freelance web solutions. Explore scope, code, and outcomes.
+          </AnimatedElement>
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
-import { Icon } from "../Icon"
+import Image from "next/image"
+import favicon from "@/app/favicon.png"
 import { Link } from "../../utils/Link"
 import { MobileMenuButton } from "./MobileMenuButton"
 import { MobileMenu } from "./MobileMenu"
@@ -20,7 +21,7 @@ export const TopBarV2: React.FC = () => {
           <div className="flex items-center gap-4 px-4 py-3 md:gap-8 md:py-2.5">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 font-medium text-nowrap dark:text-white">
-              <Icon name="serbyte" height={24} width={24} className="rounded shadow-md" />
+              <Image src={favicon} alt="site logo" width={24} height={24} className="rounded shadow-md" />
               {DATA.name}
             </Link>
 

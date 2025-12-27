@@ -17,8 +17,9 @@ export const DATA = {
   location: "Sri Lanka",
   description:
     "Aspiring Full Stack Developer & BICT (Hons) Undergraduate at University of Sri Jayewardenepura. Specialized in MERN Stack and React Native.",
-  summary:
-    "I am a third-year undergraduate specializing in Software Technology. I have experience building scalable client and university projects using the MERN stack, including backend integration, responsive UI design, and real-time features. I am currently seeking an internship to apply and expand my full-stack development expertise.",
+  summary:(<>
+<p>I’m a third-year Software Technology undergraduate building scalable full-stack applications using the MERN stack. I focus on clean architecture, responsive UI, and real-time features, and I’m currently seeking an internship to apply and expand my full-stack development skills.</p>
+  </>),
   avatarUrl: "/profile v4.png",
   skills: [
     "React",
@@ -105,9 +106,20 @@ export const DATA = {
         "Zustand"
 
       ],
-      links: [],
+      links: [
+          {
+        type: "GitHub",
+        href: "https://github.com/ThilinaJayamal/travel-ceylon",
+        icon: <Icons.github className="size-3" />,
+      },
+      {
+        type: "Live demo",
+        href: "https://frontend-user-livid.vercel.app/",
+        icon: <Icons.linkedin className="size-3" />,
+      },
+      ],
       image: travelCeylonPreview,
-      color: "#024EFC", // Added color for card compatibility
+      color: "#024EFC", 
     },
     {
       title: "Heart Attack Detector",
@@ -123,7 +135,13 @@ export const DATA = {
         "IoT",
         "Node.js",
       ],
-      links: [],
+      links: [
+      {
+        type: "GitHub",
+        href: "https://github.com/DevTechNest/HA_Detector-1.0v",
+        icon: <Icons.github className="size-3" />,
+      },
+      ],
       image: heartAttackDetectorPreview,
       color: "#DA961A", // Added color for card compatibility
     },

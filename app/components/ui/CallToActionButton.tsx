@@ -1,5 +1,5 @@
 import Image from "next/image"
-import profilePhoto from "@/public/assets/founder.jpg"
+import profilePhoto from "../../../public/profile v2.png"
 import clsx from "clsx"
 import type { Variants } from "motion"
 import { MotionButton, MotionDiv } from "@/app/utils/lazy-ui"
@@ -68,7 +68,7 @@ export const CallToActionButton = () => {
         variants={buttonVariants}
         className="group bubble-hover-cta active relative z-1 inline-flex w-max items-center gap-2 rounded-full bg-black px-3 py-2.5 text-base font-medium tracking-tight text-white shadow-xl shadow-black/20"
       >
-        <div className="pointer-events-none absolute inset-0.5 -z-1 rounded-full [background-image:url('/assets/framer-noise.png')] [background-size:164px] bg-repeat opacity-12" />
+        <div className="pointer-events-none absolute inset-0.5 -z-1 rounded-full [background-image:url('/assets/framer-noise.png')] bg-size-[164px] bg-repeat opacity-12" />
         <div className="relative flex items-center gap-1">
           {/* Avatar */}
           <div className="relative h-7 w-7 rounded-full">
@@ -80,7 +80,7 @@ export const CallToActionButton = () => {
             <span className="text-xl">+</span>
             <Icon
               name="github"
-              className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-sm font-semibold text-black ring-1 ring-black/50"
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-white dark:bg-slate-800 border border-white text-sm font-semibold text-black ring-1 ring-black/50"
             />
           </MotionDiv>
         </div>

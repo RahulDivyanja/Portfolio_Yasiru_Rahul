@@ -1,13 +1,9 @@
 import { StaticImageData } from "next/image"
 import { AnalyticCardProps } from "../components/ProjectSection/ResultsSection"
 import { Phase } from "../components/ProjectSection/ApproachSection"
-import { ReviewProps } from "./review-data"
+// import { ReviewProps } from "./review-data"
 
 // Import images
-import reactZeroUIPreview from "../images/react-zero-ui-preview.png"
-import travelCeylonPreview from "../images/Travel Ceylon.png"
-import heartAttackDetectorPreview from "../images/HeartAttack detector.png"
-
 export interface ProjectHeroProps {
   title: string | React.ReactNode
   client: string
@@ -31,7 +27,7 @@ export type ProjectData = {
   }
   results: AnalyticCardProps[]
   phases: Phase[]
-  review?: ReviewProps
+  review?: false
   slug: string
 }
 
@@ -39,16 +35,13 @@ import { TrafficBarChart } from "../components/ProjectSection/TrafficBarChart"
 import { RadialProgressRing } from "../components/ProjectSection/RadialProgressRing"
 import { LineChart } from "../components/ProjectSection/LineChart"
 
-// ... imports ...
-
-// ... interfaces ...
 
 export const skAutoCare: ProjectData = {
   hero: {
     title: "SK Auto Care: E-commerce for Auto Parts",
     client: "SK Auto Care",
     year: "2025",
-    description: "A comprehensive e-commerce platform engineered for a UAE-based automotive business to digitize their spare parts retail operations. The system was designed to handle a high-volume inventory, successfully managing over 1,000+ unique parts across 15+ different vehicle brands.",
+    description: "A comprehensive e-commerce platform engineered for a UAE-based automotive business to digitize their spare parts retail operations. The system was designed to handle a high-volume inventory, successfully managing over 1,000+ unique parts across 15+ different vehicle brands. I led end-to-end implementation including catalog modelling, inventory sync, payment integration via Stripe, and performance optimizations for catalog queries. The project included responsive UI, search and filtering improvements, and admin tooling for bulk uploads and order management.",
     categories: ["MERN Stack", "Stripe", "E-commerce"],
     link: "https://sk-auto-care-website.vercel.app/",
   },
@@ -75,6 +68,7 @@ export const skAutoCare: ProjectData = {
       chart: "",
     },
   ],
+  
   phases: [
     {
       id: 1,
@@ -109,31 +103,21 @@ export const travelCeylon: ProjectData = {
     title: "Travel Ceylon: Booking Platform",
     client: "Travel Ceylon",
     year: "2025",
-    description: "Travel booking platform. Developed the 'Stays' page allowing users to filter 500+ listings across 50+ destinations.",
+    description: "Built a feature-rich Stays page that supports filtering and searching through 500+ accommodation listings across 50+ destinations. Implemented destination-based and advanced filters with a responsive UI, ensuring smooth navigation, optimized performance, and an intuitive user experience.",
     categories: ["MERN Stack", "Tailwind CSS", "Zustand"],
-    link: "", // No link provided in resume
+    link: "https://frontend-user-livid.vercel.app/", 
   },
   slug: "travel-ceylon",
   results: [
     {
-      title: "Listings",
-      description: "Unique stay listings",
-      percentageIncrease: 500,
-      value: 500,
+      title: "Results pending",
+      description: "No measured results yet — data will be added when available.",
+      percentageIncrease: 0,
+      value: 0,
       prefix: "",
-      suffix: "+",
-      dataSource: "Platform Data",
-      chart: <TrafficBarChart startValue={50} endValue={500} />,
-    },
-    {
-      title: "Destinations",
-      description: "Covered locations",
-      percentageIncrease: 50,
-      value: 50,
-      prefix: "",
-      suffix: "+",
-      dataSource: "Platform Data",
-      chart: <RadialProgressRing percentage={100} />,
+      suffix: "",
+      dataSource: "",
+      chart: "",
     },
   ],
   phases: [
@@ -158,12 +142,23 @@ export const heartAttackDetector: ProjectData = {
     title: "Heart Attack Detector: IoT Health App",
     client: "Personal Project",
     year: "2025",
-    description: "IoT health app using React Native and WebSockets for real-time heart monitoring and Expo Push Notifications for alerts.",
+    description: "Developed a cross-platform mobile application using React Native that communicates with IoT devices via WebSockets for real-time heart rate monitoring. Implemented Expo Push Notifications to deliver immediate alerts in case of abnormal heart activity, improving user safety and response time.",
     categories: ["React Native", "IoT", "WebSockets"],
     link: "",
   },
   slug: "heart-attack-detector",
-  results: [],
+  results: [
+    {
+      title: "Results pending",
+      description: "No measured results yet — data will be added when available.",
+      percentageIncrease: 0,
+      value: 0,
+      prefix: "",
+      suffix: "",
+      dataSource: "",
+      chart: "",
+    },
+  ],
   phases: [
     {
       id: 1,

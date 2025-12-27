@@ -7,7 +7,7 @@ export const SITE_CONFIG = {
   siteName: "Yasiru Rahul",
   keywords: ["Yasiru Rahul", "Full Stack Developer", "MERN Stack", "React Native", "Sri Lanka", "Web Developer"],
   ogImage: "/assets/bg-home-poster-optimized.webp",
-  logo: "/profile v2.png",
+  logo: "/profile v4.png",
 } as const
 
 export const SITE_NAP = {
@@ -33,9 +33,9 @@ export const SITE_NAP = {
     github: "https://github.com/rahuldivyanja",
     x: "",
   } as const,
-  logo: "/profile v2.png",
+  logo: "/profile v4.png",
   favicon: "/favicon.ico",
-  images: ["/profile v2.png"],
+  images: ["/profile v.png"],
 } as const
 
 export const SITE_SLUGS = {

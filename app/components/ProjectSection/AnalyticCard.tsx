@@ -37,7 +37,7 @@ export const AnalyticCard: React.FC<AnalyticCardProps> = ({
         delay: index * 0.1,
         ease: [0.2, 0.65, 0.3, 0.9]
       }}
-      className="relative flex h-[500px] max-w-md min-w-[300px] flex-1 flex-col justify-between rounded-xl border border-gray-200 p-6 transition-all duration-300 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/50"
+      className="relative flex h-auto max-w-md min-w-[300px] flex-1 flex-col justify-between rounded-xl border border-gray-200 p-6 transition-all duration-300 hover:shadow-lg dark:border-slate-700 dark:bg-slate-900/50"
     >
       {/* Title */}
 
@@ -51,8 +51,14 @@ export const AnalyticCard: React.FC<AnalyticCardProps> = ({
         {description && <p className="text-xs leading-tight text-gray-600 dark:text-slate-400">{description}</p>}
       </div>
 
-      {/* Chart Container */}
-      {chart}
+      {/* Chart area: render provided chart/node if present, otherwise show a decorative animated blob */}
+      <div className="mt-6 flex items-center justify-center">
+        {chart ? (
+          <div className="w-full">{chart}</div>
+        ) : (
+          <div className="animated-blob h-20 w-20 rounded-full" aria-hidden />
+        )}
+      </div>
       <MotionSpan
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

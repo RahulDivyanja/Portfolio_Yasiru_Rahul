@@ -8,6 +8,7 @@ import { DATA } from "../data/resume"
 
 const getIconForSkill = (skill: string) => {
   const lowercaseSkill = skill.toLowerCase()
+  
   if (lowercaseSkill.includes("react")) return "react"
   if (lowercaseSkill.includes("next")) return "next"
   if (lowercaseSkill.includes("type")) return "typescript"
@@ -34,7 +35,6 @@ const services = [
   { name: "Full Stack Development", src: "magic-wand" },
   { name: "React Development", src: "paint-bucket" },
   { name: "Performance Optimization", src: "web" },
-  { name: "UI/UX Design", src: "world" },
   { name: "Code Reviews", src: "planet" },
   { name: "Advanced Motion", src: "cube" },
 ]
@@ -92,7 +92,7 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
   return (
     <section id="technologies" className={clsx("inside-container relative z-2 items-start justify-center md:flex-row md:items-center", className)}>
       {/*  LEFT COLUMN  */}
-      <div className="flex h-full flex-col gap-16 max-md:w-full md:[flex:2_0_0px]">
+      <div className="flex h-full flex-col gap-16 max-md:w-full md:flex-[2_0_0px]">
         <AnimatedH2>
           <span className="text-slate-500 dark:text-slate-400">Tech</span> <br />
           Stack
@@ -120,7 +120,7 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
                     htmlFor={name}
                     className="button-shadow flex h-13 w-13 items-center justify-center rounded-xl border border-gray-200 bg-white peer-checked:translate-y-0.5 peer-checked:shadow-none hover:translate-y-0.5 dark:bg-slate-800 dark:border-gray-700"
                   >
-                    <Icon name={src} width={30} height={30} className="object-contain dark:brightness-0 dark:invert" />
+                    <Icon name={src} width={30} height={30} className="h-7 w-7 text-black dark:text-white" />
                   </label>
                   {/* optional tooltip */}
                   <span className="absolute -top-7 left-1/2 -translate-x-1/2 rounded-full bg-black px-2 py-1 text-xs text-white opacity-0 transition delay-100 duration-300 group-hover:opacity-100 peer-checked:opacity-100">
@@ -139,12 +139,12 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
         whileInView="visible"
         viewport={{ once: true, amount: 0.8 }}
         variants={container2}
-        className="grid [flex:1_0_0px] grid-cols-2 gap-8 md:grid-cols-1"
+        className="grid flex-[1_0_0px] grid-cols-2 gap-8 md:grid-cols-1"
       >
         {services.map(({ name, src }) => (
           <MotionLi key={name} variants={element2} className="flex items-center gap-3">
             <span className="button-shadow flex aspect-square h-10 w-10 items-center justify-center rounded-full bg-black dark:bg-slate-700">
-              <Icon name={src} width={25} height={30} className="object-contain dark:invert dark:text-white" />
+              <Icon name={src} width={25} height={30} className="h-6 w-6 text-black dark:text-white" />
             </span>
             <Text as="span" size="sm">
               {name}

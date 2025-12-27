@@ -1,3 +1,4 @@
+import React from "react"
 import { DATA } from "@/app/data/resume"
 import { PROJECTS_MAP } from "@/app/data/project-data"
 import { notFound } from "next/navigation"
@@ -66,11 +67,11 @@ export default async function ProjectPage({
                         Back to projects
                     </Link>
 
-                    <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl dark:text-gray-100">
+                    <h1 className="text-4xl font-bold tracking-tight sm:text-5xl heading">
                         {project.title}
                     </h1>
 
-                    <div className="flex flex-wrap items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
+                    <div className="flex flex-wrap items-center gap-2 text-sm muted-text">
                         {project.dates && <time>{project.dates}</time>}
                         {project.active && (
                             <>
@@ -94,7 +95,7 @@ export default async function ProjectPage({
                 )}
 
                 <div className="prose prose-gray dark:prose-invert max-w-none">
-                    <p className="text-lg leading-8 text-gray-600 dark:text-gray-300">
+                    <p className="text-lg leading-8 body-text">
                         {project.description}
                     </p>
                 </div>
@@ -113,17 +114,43 @@ export default async function ProjectPage({
                 )}
 
                 <div className="flex flex-wrap gap-4">
-                    {project.links?.map((link) => (
-                        <Link
-                            key={link.href}
-                            href={link.href}
-                            target="_blank"
-                            className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
-                        >
-                            {link.icon}
-                            {link.type}
-                        </Link>
-                    ))}
+                    {(() => {
+                        const links = project.links ?? []
+                        const demoLink = links.find((l) => /live|demo|site/i.test(l.type))
+                        const sourceLink = links.find((l) => /source|code|git|repo/i.test(l.type))
+
+                        return (
+                            <>
+                                {demoLink && (
+                                    <Link
+                                        href={demoLink.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 rounded-lg bg-gray-900 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-gray-700 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-200"
+                                    >
+                                        {React.isValidElement(demoLink.icon)
+                                            ? React.cloneElement(demoLink.icon as React.ReactElement<any>, { className: 'h-4 w-4 text-white dark:text-gray-900' })
+                                            : demoLink.icon}
+                                        {demoLink.type}
+                                    </Link>
+                                )}
+
+                                {sourceLink && (
+                                    <Link
+                                        href={sourceLink.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm font-semibold text-gray-900 shadow-sm transition-colors hover:bg-gray-50 dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                                    >
+                                        {React.isValidElement(sourceLink.icon)
+                                            ? React.cloneElement(sourceLink.icon as React.ReactElement<any>, { className: 'h-4 w-4 text-gray-900 dark:text-white' })
+                                            : sourceLink.icon}
+                                        {sourceLink.type}
+                                    </Link>
+                                )}
+                            </>
+                        )
+                    })()}
                 </div>
             </div>
         </section>

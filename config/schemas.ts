@@ -95,7 +95,7 @@ export const projectsGraph: Graph = {
       "@type": "CollectionPage",
       "@id": `${SITE}${SITE_SLUGS.projects}#page`,
       url: `${SITE}${SITE_SLUGS.projects}`,
-      name: "Projects - Austin Serb",
+      name: "Projects - Yasiru Rahul",
       isPartOf: { "@id": `${SITE}#website` },
       mainEntity: { "@id": `${SITE}${SITE_SLUGS.projects}#list` }, // <-- REFERENCES ABOVE
       mainEntityOfPage: `${SITE}${SITE_SLUGS.projects}`,
@@ -162,7 +162,7 @@ export const siteGraph = {
     {
       "@type": "Person",
       "@id": `${SITE}/#austin-serb`,
-      name: "Austin Serb",
+      name: "Yasiru Rahul",
       url: SITE,
       jobTitle: "Full-Stack Engineer",
       image: { "@id": `${SITE}#headshot` },
@@ -174,7 +174,7 @@ export const siteGraph = {
       "@type": "WebSite",
       "@id": `${SITE}#website`,
       url: SITE,
-      name: "Austin Serb - Developer Portfolio",
+      name: "Yasiru Rahul - Developer Portfolio",
       publisher: { "@id": `${SITE}#org` },
       inLanguage: "en",
     },

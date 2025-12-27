@@ -33,9 +33,9 @@ export const RecruiterContact: React.FC = () => {
           <div className="flex flex-col items-center gap-4 max-lg:items-center">
             <H3 className="text-center font-normal tracking-tight">
               <span>
-                Building Something Amazing? <br />
+                Full-Stack Developer <br />
               </span>
-              <span className="text-slate-500 dark:text-slate-400">Let&apos;s chat.</span>
+              <span className="text-slate-500 dark:text-slate-400">Open to Internships & Freelance</span>
             </H3>
             <Text className="max-w-2xl text-center text-balance">
               {DATA.summary}

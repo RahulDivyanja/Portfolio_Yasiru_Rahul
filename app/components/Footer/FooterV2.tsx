@@ -5,7 +5,7 @@ import { SITE_SLUGS } from "@/config/siteConfig"
 import { H2 } from "@/app/ui/Elements"
 import { DATA } from "@/app/data/resume"
 
-const words: [string, string, string, string] = ["build", "create", "design", "make"]
+const words: [string, string] = ["build",  "design"]
 
 export const socialLinks = Object.values(DATA.contact.social).map((social) => ({
   href: social.url,
@@ -18,10 +18,10 @@ export const FooterV2: React.FC = () => {
       <div className="xs:pb-32 mx-auto flex w-full max-w-6xl flex-col gap-12 px-5.5 pt-12 pb-24 text-white sm:pb-40 md:gap-16 md:px-11 md:pt-16 lg:pb-54">
         <div className="flex flex-col gap-8 md:gap-12">
           <H2 className="text-5xl leading-12 text-white md:text-6xl md:leading-14">
-            Lets&nbsp;
-            <TextSlider words={words} height={50} mobileHeight={41} />
+            I&nbsp;
+            <TextSlider words={words} durations={[3, 1.2]} height={50} mobileHeight={41} />
             <br />
-            <span className="text-gray-500">incredible work together.</span>
+            <span className="text-gray-500">scalable digital solutions.</span>
           </H2>
           <ul className="flex flex-col justify-between gap-5.5 border-b border-gray-500 pb-6 text-sm md:flex-row md:items-center md:gap-8">
             <li className="flex flex-col gap-1 md:gap-2">
