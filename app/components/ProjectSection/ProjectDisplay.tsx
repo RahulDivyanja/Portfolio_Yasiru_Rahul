@@ -19,7 +19,7 @@ const ProjectDisplay: React.FC<{ projectData: ProjectData }> = ({ projectData })
           __html: JSON.stringify(buildProjectGraphMinimal(projectData.slug, projectData)),
         }}
       />
-      <ProjectHero {...projectData.hero} />
+      <ProjectHero {...projectData.hero} slug={projectData.slug} />
       {projectData.beforeAfter && (
         <BeforeAfterSection
           heroBefore={projectData.beforeAfter.heroBefore}
@@ -33,7 +33,7 @@ const ProjectDisplay: React.FC<{ projectData: ProjectData }> = ({ projectData })
       )}
       <ResultsSection analyticCards={projectData.results} />
       <ApproachSection phases={projectData.phases} />
-      <LargeReview {...projectData.review} />
+      {projectData.review && <LargeReview {...projectData.review} />}
       <MoreProjectsSection />
       <RecruiterContact />
     </main>

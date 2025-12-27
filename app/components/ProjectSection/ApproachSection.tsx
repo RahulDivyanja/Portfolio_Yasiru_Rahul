@@ -13,7 +13,7 @@ export interface Phase {
 
 export const ApproachSection: React.FC<{ phases: Phase[] }> = ({ phases }) => {
   return (
-    <section className="border-y border-gray-200">
+    <section className="border-y border-gray-200 dark:border-white/5 bg-white dark:bg-transparent">
       <div className="inside-container-large">
         <HeaderText title="The Approach." titleHighlight="See how we did it." />
         <ApproachTabs phases={phases} />

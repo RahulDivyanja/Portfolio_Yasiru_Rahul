@@ -1,12 +1,8 @@
 import { StaticImageData } from "next/image"
 import { Card } from "@/app/components/ProjectCard/Card"
-import iaoPreview from "@/app/images/iao-preview-v2.webp"
-import bespokePreview from "@/app/images/bespoke-preview-v2.webp"
-import automedicsPreview from "@/app/images/automedics-preview-v2.webp"
-import entitledPreview from "@/app/images/entitled-preview-v2.webp"
-import IconSpritePreview from "@/app/images/zero-icon-sprite-preview.jpg"
-import zeroPreview from "@/app/images/react-zero-ui-preview.jpg"
-import vetsChoiceInsurancePreview from "@/images/vets-choice-insurance-preview.webp"
+import zeroPreview from "@/app/images/react-zero-ui-preview.png"
+import travelCeylonPreview from "@/app/images/Travel Ceylon.png"
+import heartAttackDetectorPreview from "@/app/images/HeartAttack detector.png"
 import { Link } from "@/app/utils/Link"
 import { externalLinks, SITE_SLUGS } from "@/config/siteConfig"
 
@@ -25,90 +21,40 @@ type StaticProject = {
 
 export const STATIC_PROJECTS: StaticProject[] = [
   {
-    id: "react-zero-ui",
-    src: zeroPreview,
-    alt: "React-Zero-UI - Preview",
+    id: "sk-auto-care",
+    src: zeroPreview, // Using zeroPreview as a placeholder or if it matches SK Auto Care in resume, wait, resume used reactZeroUIPreview for SK Auto Care
+    alt: "SK Auto Care Preview",
     color: "#3B06D1",
-    type: "Zero Re-Render State Library",
-    text: "View on GitHub",
-    href: externalLinks.zeroCore,
-    dataText: "View on GitHub",
-    ariaLabel: "View React Zero UI on GitHub",
-    isExternal: true,
+    type: "E-commerce Website",
+    text: "See Case Study",
+    href: SITE_SLUGS.projectLinks.skAutoCare,
+    dataText: "See Case Study",
+    ariaLabel: "See SK Auto Care Case Study",
+    isExternal: false,
   },
   {
-    id: "bespoke",
-    src: bespokePreview,
-    alt: "Bespoke Preview",
+    id: "travel-ceylon",
+    src: travelCeylonPreview,
+    alt: "Travel Ceylon Preview",
     color: "#024EFC",
-    type: "Automotive Styling Website",
+    type: "Travel Booking Platform",
     text: "See Case Study",
-    href: SITE_SLUGS.projectLinks.bespoke,
+    href: SITE_SLUGS.projectLinks.travelCeylon,
     dataText: "See Case Study",
-    ariaLabel: "See Bespoke Website Build Case Study",
+    ariaLabel: "See Travel Ceylon Case Study",
     isExternal: false,
   },
   {
-    id: "vets-choice",
-    src: vetsChoiceInsurancePreview,
-    alt: "Vets Choice Insurance Preview",
-    color: "#DA961AA5",
-    type: "Pet Insurance Website",
-    text: "View Website",
-    href: externalLinks.vetsChoice,
-    dataText: "View Website",
-    ariaLabel: "View Vets Choice Insurance Website",
-    isExternal: true,
-  },
-  {
-    id: "zero-icon-sprite",
-    src: IconSpritePreview,
-    alt: "Zero-Icon-Sprite Preview",
-    color: "#3B06D1A5",
-    type: "SVG Build Tool",
-    text: "View on GitHub",
-    href: externalLinks.zeroIconSprite,
-    dataText: "View on GitHub",
-    ariaLabel: "View React Zero UI Icon Sprite on GitHub",
-    isExternal: true,
-  },
-
-  {
-    id: "automedics",
-    src: automedicsPreview,
-    alt: "Automedics Preview",
-    color: "#000000",
-    type: "Automotive Repair Website",
+    id: "heart-attack-detector",
+    src: heartAttackDetectorPreview,
+    alt: "Heart Attack Detector Preview",
+    color: "#DA961A",
+    type: "IoT Health App",
     text: "See Case Study",
-    href: SITE_SLUGS.projectLinks.automedics,
+    href: SITE_SLUGS.projectLinks.heartAttackDetector,
     dataText: "See Case Study",
-    ariaLabel: "See Automedics Website Build Case Study",
+    ariaLabel: "See Heart Attack Detector Case Study",
     isExternal: false,
-  },
-
-  {
-    id: "iron-oak",
-    src: iaoPreview,
-    alt: "IAO Preview",
-    color: "#13739C",
-    type: "Private Security Website",
-    text: "See Case Study",
-    href: SITE_SLUGS.projectLinks.iao,
-    dataText: "See Case Study",
-    ariaLabel: "See Iron & Oak Website Build Case Study",
-    isExternal: false,
-  },
-  {
-    id: "entitled",
-    src: entitledPreview,
-    alt: "Entitled Preview",
-    color: "#DA961AA5",
-    type: "Event Management Web App",
-    text: "View Website",
-    href: externalLinks.entitled,
-    dataText: "View Website",
-    ariaLabel: "View Entitled Website",
-    isExternal: true,
   },
 ]
 
@@ -121,18 +67,18 @@ export const ProjectsStatic: React.FC = () => {
             const ProjectWrapper = project.isExternal ? "a" : Link
             const wrapperProps = project.isExternal
               ? {
-                  href: project.href,
-                  target: "_blank",
-                  rel: "noopener",
-                  "data-text": project.dataText,
-                  "aria-label": project.ariaLabel,
-                }
+                href: project.href,
+                target: "_blank",
+                rel: "noopener",
+                "data-text": project.dataText,
+                "aria-label": project.ariaLabel,
+              }
               : {
-                  href: project.href,
-                  "data-text": project.dataText,
-                  "aria-label": project.ariaLabel,
-                  prefetch: true,
-                }
+                href: project.href,
+                "data-text": project.dataText,
+                "aria-label": project.ariaLabel,
+                prefetch: true,
+              }
 
             return (
               <ProjectWrapper key={project.id} {...wrapperProps}>

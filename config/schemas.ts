@@ -13,57 +13,25 @@ interface ProjectItem {
 // Project data for schema
 const projectsData: ProjectItem[] = [
   {
-    name: "React Zero-UI",
-    url: externalLinks.zeroCore, // external canonical
-    date: "2025-06-01",
-    description: "Zero Re-Render State Library",
-    type: "SoftwareSourceCode",
-  },
-  {
-    name: "Bespoke Tint & PPF",
-    url: SITE_SLUGS.projectLinks.bespoke, // internal case study
-    external: "https://www.bespokeauto.org", // client site
-    date: "2025-03-11",
-    description: "Automotive Styling Website",
-    type: "WebSite",
-  },
-
-  {
-    name: "Automedics",
-    url: SITE_SLUGS.projectLinks.automedics, // internal case study
-    external: "https://www.automedicskirkland.com",
-    date: "2024-12-02",
-    description: "Automotive Repair Website",
+    name: "SK Auto Care",
+    url: SITE_SLUGS.projectLinks.skAutoCare,
+    date: "2025-09-01",
+    description: "E-commerce Website",
     type: "WebSite",
   },
   {
-    name: "Iron & Oak",
-    url: SITE_SLUGS.projectLinks.iao, // internal case study
-    external: "https://ironandoaksecurity.com",
-    date: "2024-06-15",
-    description: "Private Security Website",
+    name: "Travel Ceylon",
+    url: SITE_SLUGS.projectLinks.travelCeylon,
+    date: "2025-05-01",
+    description: "Travel Booking Platform",
     type: "WebSite",
   },
   {
-    name: "Vets Choice Insurance",
-    url: externalLinks.vetsChoice, // external canonical
-    date: "2025-05-20",
-    description: "Pet Insurance Website",
-    type: "WebSite",
-  },
-  {
-    name: "Zero Icon Sprite",
-    url: externalLinks.zeroIconSprite, // external canonical
-    date: "2024-06-15",
-    description: "SVG Build Tool",
+    name: "Heart Attack Detector",
+    url: SITE_SLUGS.projectLinks.heartAttackDetector,
+    date: "2025-01-01",
+    description: "IoT Health App",
     type: "SoftwareApplication",
-  },
-  {
-    name: "Entitled",
-    url: externalLinks.entitled, // external canonical
-    date: "2024-02-10",
-    description: "Event Management Web App",
-    type: "WebApplication",
   },
 ]
 
@@ -114,7 +82,7 @@ const itemList: ItemList = {
   itemListElement: projectsData.map((p, i) => ({
     "@type": "ListItem",
     position: i + 1,
-    item: { "@id": p.url.startsWith("/") ? `${SITE}${p.url}` : p.url },
+    item: { "@id": (p.url || "").startsWith("/") ? `${SITE}${p.url}` : p.url },
   })),
 }
 
@@ -127,7 +95,7 @@ export const projectsGraph: Graph = {
       "@type": "CollectionPage",
       "@id": `${SITE}${SITE_SLUGS.projects}#page`,
       url: `${SITE}${SITE_SLUGS.projects}`,
-      name: "Projects - Austin Serb",
+      name: "Projects - Yasiru Rahul",
       isPartOf: { "@id": `${SITE}#website` },
       mainEntity: { "@id": `${SITE}${SITE_SLUGS.projects}#list` }, // <-- REFERENCES ABOVE
       mainEntityOfPage: `${SITE}${SITE_SLUGS.projects}`,
@@ -194,7 +162,7 @@ export const siteGraph = {
     {
       "@type": "Person",
       "@id": `${SITE}/#austin-serb`,
-      name: "Austin Serb",
+      name: "Yasiru Rahul",
       url: SITE,
       jobTitle: "Full-Stack Engineer",
       image: { "@id": `${SITE}#headshot` },
@@ -206,7 +174,7 @@ export const siteGraph = {
       "@type": "WebSite",
       "@id": `${SITE}#website`,
       url: SITE,
-      name: "Austin Serb - Developer Portfolio",
+      name: "Yasiru Rahul - Developer Portfolio",
       publisher: { "@id": `${SITE}#org` },
       inLanguage: "en",
     },

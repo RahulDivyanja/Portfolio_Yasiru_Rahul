@@ -60,7 +60,7 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
         {/* Animated Background for Active Tab */}
         <div
           className={
-            "absolute inset-0 left-0 z-1 rounded-xl bg-gradient-to-br from-slate-500 to-slate-900 [box-shadow:var(--button-shadow)] sm:inset-y-2" +
+            "absolute inset-0 left-0 z-1 rounded-xl bg-gradient-to-br from-slate-500 to-slate-900 dark:from-slate-700 dark:to-slate-950 [box-shadow:var(--button-shadow)] sm:inset-y-2" +
             "phase-1:translate-x-[0%] phase-2:translate-x-[100%] phase-3:translate-x-[200%] phase-4:translate-x-[300%] phase-5:translate-x-[400%] transition-transform duration-300 ease-in-out"
           }
           style={{
@@ -77,12 +77,12 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
               <button
                 key={phase.id}
                 onClick={() => setPhase(phaseId)}
-                className={`group relative rounded-xl p-4 text-center shadow-inner shadow-slate-900/20 transition-all duration-500 sm:p-2 ${tw} `}
+                className={`group relative rounded-xl p-4 text-center shadow-inner shadow-slate-900/20 dark:shadow-slate-950/40 transition-all duration-500 sm:p-2 dark:text-slate-300 ${tw} `}
               >
-                <div className="absolute inset-0 z-0 rounded-xl border border-slate-300" />
+                <div className="absolute inset-0 z-0 rounded-xl border border-slate-300 dark:border-slate-700" />
                 <div className="flex flex-col items-center gap-1">
                   <div className="z-1">
-                    <Image src={phase.icon} alt={phase.title} width={50} height={50} />
+                    <Image src={phase.icon} alt={phase.title} width={50} height={50} className="dark:brightness-0 dark:invert" />
                     <span className="text-xs font-semibold text-nowrap max-sm:hidden">Phase {phase.id}</span>
                   </div>
                   <span className="z-1 text-xs leading-tight opacity-75 sm:text-nowrap">{phase.title}</span>
@@ -109,13 +109,13 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
               {/* Left */}
               <div className="space-y-2 md:space-y-4">
                 <div className="flex items-center gap-4 max-sm:justify-center">
-                  <Image src={phase.icon} alt={phase.title} width={100} height={100} className="max-sm:h-20 max-sm:w-20" />
+                  <Image src={phase.icon} alt={phase.title} width={100} height={100} className="max-sm:h-20 max-sm:w-20 dark:brightness-0 dark:invert" />
                   <div>
-                    <H3 className="mb-2 max-sm:text-xl">{phase.title}</H3>
-                    <Text size="sm">{phase.subtitle}</Text>
+                    <H3 className="mb-2 max-sm:text-xl dark:text-slate-100">{phase.title}</H3>
+                    <Text size="sm" className="dark:text-slate-400">{phase.subtitle}</Text>
                   </div>
                 </div>
-                <Text>{phase.description}</Text>
+                <Text className="dark:text-slate-300">{phase.description}</Text>
                 <ul className="hidden list-disc space-y-2 md:block">
                   {phase.details.map((detail, i) => (
                     <li
@@ -123,8 +123,8 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
                       className={`flex items-center gap-3 opacity-0 ${detailsAnimation}`}
                       style={{ ["--d" as keyof React.CSSProperties]: i + 1 } as React.CSSProperties}
                     >
-                      <div className="aspect-square h-2 w-2 rounded-full bg-slate-900" />
-                      <Text size="sm" className="leading-relaxed text-slate-600">
+                      <div className="aspect-square h-2 w-2 rounded-full bg-slate-900 dark:bg-slate-300" />
+                      <Text size="sm" className="leading-relaxed text-slate-600 dark:text-slate-400">
                         {detail}
                       </Text>
                     </li>

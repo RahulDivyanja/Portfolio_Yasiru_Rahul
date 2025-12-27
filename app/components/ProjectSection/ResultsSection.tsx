@@ -5,8 +5,12 @@ export interface AnalyticCardProps {
   title: string
   description: string
   percentageIncrease: number
+  value?: number
+  prefix?: string
+  suffix?: string
   chart: React.ReactNode
   dataSource: string
+  index?: number
 }
 
 export interface ResultsSectionProps {
@@ -15,12 +19,12 @@ export interface ResultsSectionProps {
 
 export const ResultsSection: React.FC<ResultsSectionProps> = ({ analyticCards }) => {
   return (
-    <section className="inside-container-large">
+    <section className="inside-container-large bg-white dark:bg-transparent">
       <HeaderText title="The Outcome." titleHighlight="See the results." />
 
       <div className="flex flex-wrap items-start justify-center gap-8 gap-y-16">
-        {analyticCards.map((card) => (
-          <AnalyticCard key={card.title} {...card} />
+        {analyticCards.map((card, index) => (
+          <AnalyticCard key={card.title} {...card} index={index} />
         ))}
       </div>
     </section>

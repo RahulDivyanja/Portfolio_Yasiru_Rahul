@@ -17,7 +17,7 @@ export default function SerbyteDevCreditPage() {
         <p className="text-sm tracking-[0.2em] text-gray-500 uppercase">Site Credit</p>
         <h1 className="text-2xl font-semibold">Web design by Austin Serb · Serbyte Development</h1>
         <p className="text-base text-gray-700">Crafted with Next.js, React, and custom Zero-UI components for performance and conversions.</p>
-        <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-blue-700">
+        <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-medium text-slate-900 dark:text-white">
           <a href={PORTFOLIO_URL} className="underline underline-offset-4">
             View Austin&apos;s portfolio
           </a>

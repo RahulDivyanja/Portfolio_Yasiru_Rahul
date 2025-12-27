@@ -58,7 +58,7 @@ export const Socials: React.FC<{
             aria-label={link.icon}
             title={link.icon}
           >
-            <Icon name={link.icon} height={15} width={15} className="text-black" />
+            <Icon name={link.icon} height={15} width={15} className="text-black dark:text-white" />
           </Link>
         </MotionDiv>
       ))}

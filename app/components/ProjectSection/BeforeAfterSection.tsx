@@ -31,7 +31,7 @@ export const BeforeAfterSection: React.FC<BeforeAfterSectionProps> = ({
   afterAltText,
 }) => {
   return (
-    <section className="relative border-y border-gray-200">
+    <section className="relative border-y border-gray-200 dark:border-white/5 bg-white dark:bg-transparent">
       <div className="inside-container-large flex flex-col gap-12 pt-12 lg:pt-16">
         <HeaderText
           title="Before and after."

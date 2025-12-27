@@ -59,8 +59,82 @@ body {
 html.dark {
   color-scheme: dark;
   --bg-default: #0b0b0d;
-  --text-default: #eaeaea;
-  --muted-default: #9a9a9a;
+  /* Improved dark-mode text colours for better contrast */
+  --text-default: #E6EEF3; /* primary body text */
+  --muted-default: #9FB0BF; /* secondary / muted text */
+  --heading-default: #FFFFFF; /* headings */
+  --link-accent: #60A5FA; /* links and accents */
+}
+
+/* Dark-mode readability overrides for common text containers */
+.dark .prose,
+.dark .prose * {
+  color: var(--text-default) !important;
+}
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6 {
+  color: var(--heading-default) !important;
+}
+.dark .prose a {
+  color: var(--link-accent) !important;
+}
+/* Ensure non-prose anchors are readable (white) in dark mode, e.g. nav and buttons */
+.dark a {
+  color: var(--heading-default) !important;
+}
+.dark .text-slate-700,
+.dark .text-slate-600,
+.dark .text-slate-500 {
+  color: var(--muted-default) !important;
+}
+
+/* Ensure code and small muted text remain legible */
+.dark code,
+.dark kbd,
+.dark .text-xs,
+.dark .muted {
+  color: var(--muted-default) !important;
+}
+
+/* Semantic color utilities mapped to theme variables */
+.heading {
+  color: var(--heading-default);
+}
+.body-text {
+  color: var(--text-default);
+}
+.muted-text {
+  color: var(--muted-default);
+}
+.link-accent {
+  color: var(--link-accent);
+}
+
+/* Decorative animated blob used as a placeholder for analytic cards */
+.animated-blob {
+  background: radial-gradient(circle at 30% 30%, rgba(96,165,250,0.18), rgba(99,102,241,0.08) 30%, transparent 60%), linear-gradient(135deg, rgba(99,102,241,0.06), rgba(59,130,246,0.04));
+  box-shadow: 0 6px 18px rgba(2,6,23,0.6) inset, 0 6px 22px rgba(2,6,23,0.6);
+  position: relative;
+  animation: blobPulse 3.5s ease-in-out infinite;
+}
+
+@keyframes blobPulse {
+  0% {
+    transform: scale(0.95) translateY(0);
+    filter: blur(0px) saturate(1);
+  }
+  50% {
+    transform: scale(1.06) translateY(-6px);
+    filter: blur(2px) saturate(1.1);
+  }
+  100% {
+    transform: scale(0.95) translateY(0);
+    filter: blur(0px) saturate(1);
+  }
 }
 /* 
 @keyframes customBounce {
@@ -303,6 +377,13 @@ html.dark {
 @layer utilities {
   .footer-link {
     @apply flex h-8 w-8 items-center justify-center rounded-full bg-gray-100 p-1 transition-all duration-200 *:duration-200 hover:-translate-y-0.5 hover:bg-white hover:*:scale-105;
+    color: #000 !important; /* ensure icon color overrides inherited colors */
+  }
+  /* Dark theme: invert the circle background and icon color for contrast */
+  :root.dark .footer-link,
+  html.dark .footer-link {
+    @apply bg-slate-700;
+    color: #fff !important;
   }
   .bottom-shadow {
     box-shadow:
@@ -512,3 +593,105 @@ html.dark {
     transform: translateX(0);
   }
 }
+
+/* Status dot (pulse/blink) and subtitle typing-cursor utilities */
+@keyframes statusPulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.9;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.12);
+  }
+  70% {
+    transform: scale(1.35);
+    opacity: 0.6;
+    box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.02);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.0);
+  }
+}
+
+@keyframes blinkCaret {
+  0% { opacity: 1 }
+  50% { opacity: 0 }
+  100% { opacity: 1 }
+}
+
+.status-dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #E6EEF3; /* light by default, visible on dark too */
+  box-shadow: 0 1px 2px rgba(2,6,23,0.4) inset;
+  vertical-align: middle;
+}
+.status-dot--pulse {
+  animation: statusPulse 2s cubic-bezier(.2,.8,.2,1) infinite;
+}
+
+/* Typing cursor shown after subtitle; animation respects prefers-reduced-motion */
+.typing-with-cursor {
+  position: relative;
+}
+.typing-with-cursor::after {
+  content: "";
+  display: inline-block;
+  width: 2px;
+  height: 1.05em;
+  background: currentColor;
+  margin-left: 8px;
+  vertical-align: middle;
+  animation: blinkCaret 1s step-end infinite;
+  opacity: 0.9;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .status-dot--pulse,
+  .typing-with-cursor::after {
+    animation: none !important;
+    opacity: 1;
+  }
+}
+
+/* TextSlider current word styling */
+.text-slider-current {
+  display: inline-block;
+  min-width: 4ch; /* avoid layout shift when words change */
+  will-change: opacity, transform;
+  transition: opacity 220ms ease, transform 260ms ease;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.text-slider-current[data-visible="false"] {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.text-slider-current[data-visible="true"] {
+  opacity: 1;
+  transform: translateY(0);
+  animation: slideInUp 300ms cubic-bezier(.2,.8,.2,1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .text-slider-current {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+

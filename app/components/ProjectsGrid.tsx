@@ -11,8 +11,8 @@ import { useUI } from "@react-zero-ui/core"
 
 import { DATA } from "@/app/data/resume"
 
-// Generate IDs based on project titles
-const ids = DATA.projects.map((p) => p.title.toLowerCase().replace(/\s+/g, "-"))
+// Generate IDs based on project slugs (now available in DATA)
+const ids = DATA.projects.map((p) => p.slug || p.title.toLowerCase().replace(/\s+/g, "-"))
 
 export function ProjectsGrid({ className }: { className?: string }) {
   const ref = useRef<HTMLDivElement>(null)
@@ -102,7 +102,7 @@ export function ProjectsGrid({ className }: { className?: string }) {
               color={project.color || "#000000"}
               type={project.technologies[0] || "Project"}
               progress={progress}
-              href={project.href || "#"}
+              href={project.href || undefined}
               dataText="View Project"
             />
           )
