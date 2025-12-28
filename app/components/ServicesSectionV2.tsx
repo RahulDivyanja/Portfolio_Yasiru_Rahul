@@ -1,34 +1,57 @@
 import clsx from "clsx"
 import { Icon } from "./Icon"
 import { Text } from "../ui/Elements"
+// Brand icons (Simple Icons) for tech logos
+import {
+  SiJavascript,
+  SiReact,
+  SiNextdotjs,
+  SiTypescript,
+  SiPython,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiFigma,
+  SiTailwindcss,
+  SiNodedotjs,
+  SiGithub,
+  SiOpenai,
+} from "react-icons/si"
+import { LiaReact } from "react-icons/lia"
+
+// Generic UI icons fallback
+import { Globe, Check } from "lucide-react"
 import { AnimatedH2 } from "./ui/AnimatedH2"
 import type { Variants } from "motion"
 import { MotionUl, MotionLi } from "../utils/lazy-ui"
 import { DATA } from "../data/resume"
 
-const getIconForSkill = (skill: string) => {
+const getIconForSkill = (skill: string): React.ComponentType<{ className?: string }> | string => {
   const lowercaseSkill = skill.toLowerCase()
-  
-  if (lowercaseSkill.includes("react")) return "react"
-  if (lowercaseSkill.includes("next")) return "next"
-  if (lowercaseSkill.includes("type")) return "typescript"
-  if (lowercaseSkill.includes("python")) return "python"
-  if (lowercaseSkill.includes("express")) return "express"
-  if (lowercaseSkill.includes("mongo")) return "mongodb"
-  if (lowercaseSkill.includes("postgres") || lowercaseSkill.includes("sql")) return "postgresql"
-  if (lowercaseSkill.includes("figma")) return "figma"
+  if (lowercaseSkill.includes("javascript") || lowercaseSkill.includes("script")) return SiJavascript
+  if (lowercaseSkill.includes("react native")) return LiaReact
+  if (lowercaseSkill.includes("react")) return SiReact
+  if (lowercaseSkill.includes("tailwind")) return SiTailwindcss
+  if (lowercaseSkill.includes("next")) return SiNextdotjs
+  if (lowercaseSkill.includes("type")) return SiTypescript
+  if (lowercaseSkill.includes("python")) return SiPython
+  if (lowercaseSkill.includes("express")) return SiExpress
+  if (lowercaseSkill.includes("mongo")) return SiMongodb
+  if (lowercaseSkill.includes("postgres")) return SiPostgresql
+  if (lowercaseSkill.includes("mysql")) return SiMysql
+  if (lowercaseSkill.includes("figma")) return SiFigma
   if (lowercaseSkill.includes("motion")) return "motion"
-  if (lowercaseSkill.includes("openai") || lowercaseSkill.includes("ai")) return "openai"
-  if (lowercaseSkill.includes("git")) return "github"
-  if (lowercaseSkill.includes("node")) return "boxes" // Fallback for Node
-  if (lowercaseSkill.includes("tailwind")) return "paint-bucket"
-  if (lowercaseSkill.includes("web")) return "web"
-  return "check"
+  if (lowercaseSkill.includes("openai") || lowercaseSkill.includes("ai")) return SiOpenai
+  if (lowercaseSkill.includes("git")) return SiGithub
+  if (lowercaseSkill.includes("node")) return SiNodedotjs
+  if (lowercaseSkill.includes("web")) return Globe
+  return Check
 }
 
-const tech = DATA.skills.map(skill => ({
+const tech = DATA.skills.map((skill) => ({
   name: skill,
-  src: getIconForSkill(skill)
+  IconComp: getIconForSkill(skill),
 }))
 
 const services = [
@@ -111,16 +134,22 @@ export const ServicesSectionV2: React.FC = ({ className = "" }: { className?: st
             whileInView="visible"
             viewport={{ once: true, margin: "0px 0px -100px 0px" }}
           >
-            {tech.map(({ name, src }) => (
+            {tech.map(({ name, IconComp }) => (
               <MotionLi key={name} variants={element}>
                 <div className="group relative">
                   <input placeholder={name} type="checkbox" className="peer hidden" id={name} />
 
                   <label
                     htmlFor={name}
-                    className="button-shadow flex h-13 w-13 items-center justify-center rounded-xl border border-gray-200 bg-white peer-checked:translate-y-0.5 peer-checked:shadow-none hover:translate-y-0.5 dark:bg-slate-800 dark:border-gray-700"
+                    className="button-shadow flex h-13 w-13 items-center justify-center rounded-xl border border-gray-200 bg-white peer-checked:translate-y-0.5 peer-checked:shadow-none hover:translate-y-0.5 dark:border-gray-700 dark:bg-slate-800"
                   >
-                    <Icon name={src} width={30} height={30} className="h-7 w-7 text-black dark:text-white" />
+                    {typeof IconComp === "string" ? (
+                      <Icon name={IconComp} width={30} height={30} className="h-7 w-7 text-black dark:text-white" />
+                    ) : (
+                      // IconComp is a React component (react-icons or lucide)
+                      // @ts-ignore - component typing is simple here
+                      <IconComp className="h-7 w-7 text-black dark:text-white" />
+                    )}
                   </label>
                   {/* optional tooltip */}
                   <span className="absolute -top-7 left-1/2 -translate-x-1/2 rounded-full bg-black px-2 py-1 text-xs text-white opacity-0 transition delay-100 duration-300 group-hover:opacity-100 peer-checked:opacity-100">

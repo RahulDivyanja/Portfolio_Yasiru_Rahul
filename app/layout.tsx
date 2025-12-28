@@ -11,7 +11,7 @@ import { BottomBlurOverlay } from "./ui/BlurBottomOverlay"
 import { LazySplashCursor } from "./utils/lazy-splash-cursor"
 import { DesktopCursor } from "./utils/lazy-dot-cursor"
 import { siteGraph } from "@/config/schemas"
-import icon from "@/app/image.png"
+import icon from "../app/favicon.ico"
 
 import Script from "next/script"
 
@@ -36,11 +36,11 @@ import { Providers } from "./providers"
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning >
       <head>
         <meta name="color-scheme" content="light dark" />
       </head>
-      <body {...bodyAttributes} className="relative min-w-[300px] bg-white dark:bg-[#0b0b0d] dark:text-[#eaeaea]" data-mobile-menu="closed" data-scrolled="up">
+      <body {...bodyAttributes} className="relative min-w-[300px] bg-white dark:bg-[#0b0b0d] dark:text-[#eaeaea]" data-scroll-behavior="smooth" data-mobile-menu="closed" data-scrolled="up">
         <Providers>
           <MotionWrapper>
             <DesktopCursor />

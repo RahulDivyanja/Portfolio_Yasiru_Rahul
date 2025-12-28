@@ -17,20 +17,17 @@ export const DATA = {
   location: "Sri Lanka",
   description:
     "Aspiring Full Stack Developer & BICT (Hons) Undergraduate at University of Sri Jayewardenepura. Specialized in MERN Stack and React Native.",
-  summary:(<>
-<p>I’m a third-year Software Technology undergraduate building scalable full-stack applications using the MERN stack. I focus on clean architecture, responsive UI, and real-time features, and I’m currently seeking an internship to apply and expand my full-stack development skills.</p>
-  </>),
+  summary: "I’m a third-year Software Technology undergraduate building scalable full-stack applications using the MERN stack. I focus on clean architecture, responsive UI, and real-time features, and I’m currently seeking an internship to apply and expand my full-stack development skills.",
   avatarUrl: "/profile v4.png",
   skills: [
     "React",
+    "JavaScript",
     "Next.js",
     "Node.js",
     "Express",
     "MongoDB",
-    "Tailwind CSS",
+    "tailwind",
     "React Native",
-    "Java",
-    "Python",
     "MySQL",
     "Git",
     "WebSocket",
