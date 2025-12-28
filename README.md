@@ -40,8 +40,7 @@ If you'd like to view the code locally:
 
 ```bash
 # 1. Clone the repository
-git clone [https://github.com/RahulDivyanja/portfolio.git](https://github.com/RahulDivyanja/portfolio.git)
-
+git clone https://github.com/RahulDivyanja/Portfolio_Yasiru_Rahul.git
 # 2. Install dependencies
 npm install
 
