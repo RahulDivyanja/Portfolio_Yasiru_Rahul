@@ -1,7 +1,7 @@
 import { StaticImageData } from "next/image"
 import { AnalyticCardProps } from "../components/ProjectSection/ResultsSection"
 import { Phase } from "../components/ProjectSection/ApproachSection"
-// import { ReviewProps } from "./review-data"
+import type { ReviewProps } from "./review-data"
 
 // Import images
 export interface ProjectHeroProps {
@@ -27,13 +27,13 @@ export type ProjectData = {
   }
   results: AnalyticCardProps[]
   phases: Phase[]
-  review?: false
+  review?: ReviewProps | false
   slug: string
 }
 
-import { TrafficBarChart } from "../components/ProjectSection/TrafficBarChart"
-import { RadialProgressRing } from "../components/ProjectSection/RadialProgressRing"
-import { LineChart } from "../components/ProjectSection/LineChart"
+// import { TrafficBarChart } from "../components/ProjectSection/TrafficBarChart"
+// import { RadialProgressRing } from "../components/ProjectSection/RadialProgressRing"
+// import { LineChart } from "../components/ProjectSection/LineChart"
 
 
 export const skAutoCare: ProjectData = {

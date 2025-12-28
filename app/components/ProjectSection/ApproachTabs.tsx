@@ -60,7 +60,7 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
         {/* Animated Background for Active Tab */}
         <div
           className={
-            "absolute inset-0 left-0 z-1 rounded-xl bg-gradient-to-br from-slate-500 to-slate-900 dark:from-slate-700 dark:to-slate-950 [box-shadow:var(--button-shadow)] sm:inset-y-2" +
+            "absolute inset-0 left-0 z-1 rounded-xl bg-linear-to-br from-slate-500 to-slate-900 dark:from-slate-700 dark:to-slate-950 [box-shadow:var(--button-shadow)] sm:inset-y-2" +
             "phase-1:translate-x-[0%] phase-2:translate-x-[100%] phase-3:translate-x-[200%] phase-4:translate-x-[300%] phase-5:translate-x-[400%] transition-transform duration-300 ease-in-out"
           }
           style={{
@@ -69,7 +69,7 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
         />
 
         {/* Tab Buttons */}
-        <div className="relative grid w-full [grid-template-columns:repeat(var(--phases-length),minmax(0,1fr))] justify-between">
+        <div className="relative grid w-full grid-cols-[repeat(var(--phases-length),minmax(0,1fr))] justify-between">
           {phases.map((phase) => {
             const phaseId = String(phase.id) as PhaseId
             const tw = TAB_ACTIVE_CLASS[phaseId]
@@ -94,7 +94,7 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
       </div>
 
       {/* Phase Content */}
-      <div className="relative min-h-[320px] lg:max-h-[400px]">
+      <div className="relative min-h-80 lg:max-h-[400px]">
         {phases.map((phase) => {
           const pid = String(phase.id) as PhaseId
           const tw = PANEL_VISIBLE_CLASS[pid]
@@ -132,7 +132,7 @@ export const ApproachTabs: React.FC<{ phases: Phase[] }> = ({ phases }) => {
                 </ul>
               </div>
               {/* Right */}
-              <div className={`relative aspect-[5/3] w-full scale-x-50 opacity-0 delay-300 ${animation2} transition-all duration-300 ease-in-out`}>
+              <div className={`relative aspect-5/3 w-full scale-x-50 opacity-0 delay-300 ${animation2} transition-all duration-300 ease-in-out`}>
                 <LazyTiltedWrapper
                   height="100%"
                   width="100%"

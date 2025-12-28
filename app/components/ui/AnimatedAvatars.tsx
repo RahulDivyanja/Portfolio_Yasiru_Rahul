@@ -1,9 +1,11 @@
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import type { Variants } from "motion"
 import { REVIEW_MAP } from "@/app/data/review-data"
 import { MotionDiv } from "@/app/utils/lazy-ui"
 
-const MEDALS = Object.values(REVIEW_MAP).map((review) => review.img)
+const MEDALS = Object.values(REVIEW_MAP)
+  .map((review) => review.img)
+  .filter(Boolean) as (string | StaticImageData)[]
 
 const container: Variants = {
   hidden: {
@@ -48,7 +50,7 @@ export function AnimatedAvatars() {
               alt="Reviewer avatar"
               width={40}
               height={40}
-              className="h-full w-full rounded-full border-[1px] border-gray-300 bg-white object-contain p-0.5"
+              className="h-full w-full rounded-full border border-gray-300 bg-white object-contain p-0.5"
               sizes="40px"
             />
           </MotionDiv>
