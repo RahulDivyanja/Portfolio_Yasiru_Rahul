@@ -1,9 +1,11 @@
-import Image from "next/image"
+import Image, { StaticImageData } from "next/image"
 import type { Variants } from "motion"
 import { REVIEW_MAP } from "@/app/data/review-data"
 import { MotionDiv } from "@/app/utils/lazy-ui"
 
-const MEDALS = Object.values(REVIEW_MAP).map((review) => review.img)
+const MEDALS = Object.values(REVIEW_MAP)
+  .map((review) => review.img)
+  .filter(Boolean) as (string | StaticImageData)[]
 
 const container: Variants = {
   hidden: {
