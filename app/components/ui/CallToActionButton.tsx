@@ -97,12 +97,12 @@ export const CallToActionButton = () => {
         </MotionButton>
       </a>
 
-<a
+    <a
   href="/resume.pdf"
   target="_blank"
   rel="noopener noreferrer"
   aria-label="View My CV"
-  className="hidden md:inline-block"
+  className="inline-block"
   onClick={() => {
     if (typeof window !== "undefined" && (window as any).gtag) {
       (window as any).gtag("event", "resume_click", {
