@@ -24,7 +24,7 @@ export const MobileMenu: React.FC<{ navItems: { name: string; href: string }[] }
         <Link
           href={SITE_SLUGS.contact}
           onClick={() => setMobileMenu("closed")}
-          className="bubble-hover block rounded-full border border-gray-200 bg-white px-3 py-2 text-center font-medium shadow-lg duration-300 hover:border-white dark:text-white"
+          className="bubble-hover block rounded-full border border-gray-200 bg-white px-3 py-2 text-center font-medium shadow-lg duration-300 hover:border-white dark:bg-black dark:text-white"
         >
           Contact
         </Link>
