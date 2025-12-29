@@ -12,7 +12,6 @@ import { LazySplashCursor } from "./utils/lazy-splash-cursor"
 import { DesktopCursor } from "./utils/lazy-dot-cursor"
 import { siteGraph } from "@/config/schemas"
 import icon from "../app/favicon.ico"
-
 import Script from "next/script"
 
 const switzer = localFont({
@@ -30,23 +29,39 @@ export const metadata: Metadata = {
   description: SITE_CONFIG.description,
   icons: {
     icon: icon.src,
-  }
+  },
 }
 import { Providers } from "./providers"
 
 const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <html lang="en" suppressHydrationWarning >
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="color-scheme" content="light dark" />
       </head>
-      <body {...bodyAttributes} className="relative min-w-[300px] bg-white dark:bg-[#0b0b0d] dark:text-[#eaeaea]" data-scroll-behavior="smooth" data-mobile-menu="closed" data-scrolled="up">
+      <body
+        {...bodyAttributes}
+        className="relative min-w-[300px] bg-white dark:bg-[#0b0b0d] dark:text-[#eaeaea]"
+        data-scroll-behavior="smooth"
+        data-mobile-menu="closed"
+        data-scrolled="up"
+      >
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-GHCML03JSW" strategy="afterInteractive" />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GHCML03JSW');
+    `}
+        </Script>
         <Providers>
           <MotionWrapper>
             <DesktopCursor />
             <ViewTransitions />
             <LazySplashCursor />
-            <div className="custom:mx-auto xxs:mx-3.5 pointer-events-none absolute inset-0 z-1 max-w-6xl [background-image:url('/assets/framer-noise.png')] bg-size-[128px] bg-repeat opacity-6 md:mx-5 lg:mx-8" />
+            <div className="custom:mx-auto xxs:mx-3.5 pointer-events-none absolute inset-0 z-1 max-w-6xl bg-[url('/assets/framer-noise.png')] bg-size-[128px] bg-repeat opacity-6 md:mx-5 lg:mx-8" />
             <div className={`${switzer.variable} font-switzer subpixel-antialiased`}>
               <div className="custom:mx-auto xxs:border-x pointer-events-none absolute inset-0 z-0 mx-3.5 max-w-6xl border-gray-200 md:mx-5 lg:mx-8" />
               <BottomBlurOverlay />

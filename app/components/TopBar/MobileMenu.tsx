@@ -29,6 +29,7 @@ export const MobileMenu: React.FC<{ navItems: { name: string; href: string }[] }
           Contact
         </Link>
       </li>
+      
     </ul>
   )
 }
