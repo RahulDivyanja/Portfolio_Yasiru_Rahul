@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import profilePhoto from "../../../public/profile v2.png"
 import clsx from "clsx"
