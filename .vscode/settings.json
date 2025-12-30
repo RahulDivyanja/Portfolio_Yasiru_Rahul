@@ -1,0 +1,19 @@
+{
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#3060fd",
+    "activityBar.inactiveForeground": "#a9a9a9",
+    "activityBar.foreground": "#fdfdfd",
+    "titleBar.activeBackground": "#3060fd",
+    "titleBar.activeForeground": "#FBFBFE",
+    "tab.activeBackground": "#232635",
+    "tab.hoverBackground": "#2d3144",
+    "editorIndentGuide.activeBackground1": "#95ff00",
+    "editorUnnecessaryCode.border": "#ff0000",
+    "list.activeSelectionBackground": "#0f74e098",
+    "list.activeSelectionForeground": "#ffffff",
+    "list.inactiveSelectionBackground": "#0f74e083",
+    "list.hoverBackground": "#0f74e0d8"
+  },
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "postman.settings.dotenv-detection-notification-visibility": false,
+}
