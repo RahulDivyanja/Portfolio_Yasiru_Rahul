@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
 
   images: {
-    unoptimized: true, // ⭐ REQUIRED for static export
+    unoptimized: true, 
     remotePatterns: [
       {
         protocol: 'https',
