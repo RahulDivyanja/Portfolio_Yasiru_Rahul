@@ -1,6 +1,8 @@
 import { SITE_SLUGS, DOMAIN_URL } from "@/config/siteConfig"
 import type { MetadataRoute } from "next"
 
+export const dynamic = "force-static"
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const flatSlugs = Object.values(SITE_SLUGS).flatMap((val) => (typeof val === "string" ? [val] : Object.values(val)))
 
