@@ -12,7 +12,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allRoutes = flatSlugs.filter((route) => 
     typeof route === "string" && 
     !route.includes("#") && 
-    !route.startsWith("http") // <--- THIS LINE FIXES THE ERROR
+    !route.startsWith("http") 
   )
 
   // Safety check: remove trailing slash if it exists

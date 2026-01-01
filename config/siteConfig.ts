@@ -1,9 +1,12 @@
-export const DOMAIN_URL = "https://github.com/rahuldivyanja"
+export const DOMAIN_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+
+// normalize base URL (remove trailing slash) to avoid double-slashes when concatenating paths
+export const BASE_URL = DOMAIN_URL.endsWith("/") ? DOMAIN_URL.slice(0, -1) : DOMAIN_URL
 
 export const SITE_CONFIG = {
   title: "Yasiru Rahul - Full Stack Developer Portfolio | MERN & React Native",
   description: "Portfolio of Yasiru Rahul, an aspiring Full Stack Developer & BICT (Hons) Undergraduate specializing in MERN Stack and React Native.",
-  url: DOMAIN_URL ?? "http://localhost:3000",
+  url: BASE_URL,
   siteName: "Yasiru Rahul",
   keywords: ["Yasiru Rahul", "Full Stack Developer", "MERN Stack", "React Native", "Sri Lanka", "Web Developer"],
   ogImage: "/assets/bg-home-poster-optimized.webp",

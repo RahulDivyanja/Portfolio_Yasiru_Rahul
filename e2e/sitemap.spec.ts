@@ -9,8 +9,11 @@ test("sitemap() generates valid sitemap entries", async () => {
 
   const urls = routes.map((r) => r.url)
 
+  // normalize baseURL same as sitemap.ts (remove trailing slash)
+  const baseUrl = DOMAIN_URL.endsWith("/") ? DOMAIN_URL.slice(0, -1) : DOMAIN_URL
+
   // homepage present
-  expect(urls.some((u) => u === DOMAIN_URL || u === `${DOMAIN_URL}/`)).toBeTruthy()
+  expect(urls.some((u) => u === baseUrl || u === `${baseUrl}/`)).toBeTruthy()
 
   // no hash fragments and all URLs start with DOMAIN_URL
   for (const u of urls) {
@@ -30,7 +33,7 @@ test("sitemap() generates valid sitemap entries", async () => {
   const flatSlugs = Object.values(SITE_SLUGS).flatMap((v) => (typeof v === "string" ? [v] : Object.values(v)))
   const expectedPaths = flatSlugs
     .filter((s) => typeof s === "string" && !s.includes("#") && !s.startsWith("http"))
-    .map((s) => (s.startsWith("/") ? `${DOMAIN_URL}${s}` : `${DOMAIN_URL}/${s}`))
+    .map((s) => (s.startsWith("/") ? `${baseUrl}${s}` : `${baseUrl}/${s}`))
 
   for (const expected of expectedPaths) {
     expect(urls).toContain(expected)
