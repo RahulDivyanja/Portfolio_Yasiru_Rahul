@@ -28,8 +28,11 @@ export const metadata: Metadata = {
   title: SITE_CONFIG.title,
   description: SITE_CONFIG.description,
   icons: {
-    icon: icon.src,
+    icon: SITE_CONFIG.icons.icon,
+    shortcut: SITE_CONFIG.icons.shortcut,
+    apple: SITE_CONFIG.icons.apple,
   },
+
 }
 import { Providers } from "./providers"
 
