@@ -9,11 +9,11 @@ export const SITE_CONFIG = {
   url: BASE_URL,
   siteName: "Yasiru Rahul",
   keywords: ["Yasiru Rahul", "Full Stack Developer", "MERN Stack", "React Native", "Sri Lanka", "Web Developer"],
-  ogImage: "/assets/profile v4.png",
+  ogImage: "/profile v4.png",
   icons: {
     icon: "/profile v4.png", 
     shortcut: "/profile v4.png",
-    apple: "/profile v4.png", // Optional: for iPhone home screen
+    apple: "/profile v4.png", 
   },
   logo: "/profile v4.png",
 } as const
