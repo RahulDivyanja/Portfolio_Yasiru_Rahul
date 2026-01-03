@@ -9,7 +9,7 @@ export const SITE_CONFIG = {
   url: BASE_URL,
   siteName: "Yasiru Rahul",
   keywords: ["Yasiru Rahul", "Full Stack Developer", "MERN Stack", "React Native", "Sri Lanka", "Web Developer"],
-  ogImage: "/assets/bg-home-poster-optimized.webp",
+  ogImage: "/assets/profile v4.png",
   logo: "/profile v4.png",
 } as const
 
