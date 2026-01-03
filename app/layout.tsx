@@ -11,7 +11,6 @@ import { BottomBlurOverlay } from "./ui/BlurBottomOverlay"
 import { LazySplashCursor } from "./utils/lazy-splash-cursor"
 import { DesktopCursor } from "./utils/lazy-dot-cursor"
 import { siteGraph } from "@/config/schemas"
-import icon from "../app/favicon.ico"
 import Script from "next/script"
 
 const switzer = localFont({
