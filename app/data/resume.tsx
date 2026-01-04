@@ -63,7 +63,7 @@ export const DATA = {
       title: "SK Auto Care",
       slug: "sk-auto-care",
       href: "",
-      dates: "Sep 2025 - Oct 2025",
+      dates: "Sep 2025 - Present",
       active: true,
       description:
         "A full-stack e-commerce website for a UAE client. Supports 1,000+ parts from 15+ vehicle brands with Stripe payment integration.",
